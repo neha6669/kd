@@ -1,19 +1,35 @@
-/*
-  Add your real Telegram invite URL below.
-  Example: https://t.me/your_channel_name
-  Both green buttons will use the same link.
-*/
-const TELEGRAM_LINK = "https://t.me/YOUR_TELEGRAM_LINK";
+// Meta Pixel
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-document.querySelectorAll("[data-telegram-link]").forEach((button) => {
-  button.href = TELEGRAM_LINK;
-  button.target = "_blank";
-  button.rel = "noopener noreferrer";
+fbq('init','1460593405496352');
+fbq('track','PageView');
 
-  button.addEventListener("click", (event) => {
-    if (TELEGRAM_LINK.includes("YOUR_TELEGRAM_LINK")) {
-      event.preventDefault();
-      alert("Please add your real Telegram group or channel link in script.js first.");
-    }
-  });
-});
+// Telegram Join Button
+function joinTelegram(){
+    window.open(
+        'https://t.me/+2CfR4-D5Fkk2ODBl',
+        '_blank'
+    );
+}
+
+// Button Click Tracking
+function trackButtonClick(){
+    fbq('track','Lead');
+    joinTelegram();
+}
